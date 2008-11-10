@@ -1,3 +1,5 @@
+require "autotest/redgreen"
+
 Autotest.add_hook :initialize do |at|
   at.add_exception ".git"
   at.add_exception "test/fixtures"

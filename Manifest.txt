@@ -9,9 +9,15 @@ lib/basis/errors.rb
 lib/basis/installer.rb
 lib/basis/installer/lifecycle.rb
 lib/basis/repository.rb
+lib/basis/template.rb
+lib/basis/templates/git.rb
+lib/basis/templates/local.rb
 lib/basis/version.rb
 test/basis/installer_test.rb
 test/basis/repository_test.rb
+test/basis/template_test.rb
+test/basis/templates/git_test.rb
+test/basis/templates/local_test.rb
 test/fixtures/dynamic/[complex.nested.value].txt
 test/fixtures/dynamic/[directory]/blank.txt
 test/fixtures/dynamic/[file].txt
