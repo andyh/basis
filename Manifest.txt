@@ -5,11 +5,13 @@ README.txt
 Rakefile
 bin/basis
 lib/basis.rb
+lib/basis/cli.rb
 lib/basis/errors.rb
 lib/basis/installer.rb
 lib/basis/installer/lifecycle.rb
 lib/basis/repository.rb
 lib/basis/version.rb
+test/basis/cli_test.rb
 test/basis/installer_test.rb
 test/basis/repository_test.rb
 test/fixtures/dynamic/[complex.nested.value].txt
