@@ -6,4 +6,5 @@ require "./lib/basis/version.rb"
 Hoe.new("basis", Basis::VERSION) do |p|
   p.developer "John Barnette", "jbarnette@rubyforge.org"
   p.test_globs = ["test/**/*_test.rb"]
+  p.extra_deps << ["erubis", "~> 2.6"]
 end
