@@ -1,4 +1,6 @@
-require "erb"
+require "rubygems"
+
+require "erubis"
 require "fileutils"
 require "ostruct"
 require "pathname"
@@ -47,7 +49,7 @@ module Basis
           if erb?(sourcepath)
             targetpath.open("w") do |t|
               context = OpenStruct.new(context) if Hash === context
-              erb = ERB.new(sourcepath.read)
+              erb = Erubis::Eruby.new(sourcepath.read, :pattern => '\[% %\]')
               t.write(erb.result(context.instance_eval { binding }))
             end
           else
@@ -64,7 +66,7 @@ module Basis
     private
 
     def erb?(path)
-      path.read =~ /<%.*%>/
+      path.read =~ /\[%.*%\]/
     end
 
     # Apply a [dot.expression] to a target, which may be an object, a hash, or
