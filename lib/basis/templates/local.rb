@@ -3,10 +3,11 @@ require "uri"
 module Basis
   module Templates
     class Local < Basis::Template
-      def initialize(path)
+      def initialize(source)
+        raise Basis::DirectoryNotFound.new(source) unless File.directory?(source)
         super
-        @url.scheme = "file"
       end
     end
   end
 end
+

@@ -2,8 +2,10 @@ require "helper"
 
 module Basis
   class TemplateTest < Test::Unit::TestCase
-    def test_initialize_turns_url_into_URI_if_it_isnt_one
-      flunk
+    def test_initialize_takes_a_source
+      t = Basis::Template.new("source")
+      assert_equal("source", t.source)
     end
   end
 end
+

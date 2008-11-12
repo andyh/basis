@@ -3,26 +3,23 @@ require "uri"
 module Basis
   class Template
     class << self
-      protected :new
-      
-      def git(repository)
-        Basis::Templates::Git.new(repository)
+      def git(source)
+        Basis::Templates::Git.new(source)
       end
       
-      def local(path)
-        Basis::Templates::Local.new(path)
+      def local(source)
+        Basis::Templates::Local.new(source)
       end
     end
     
-    attr_reader :url
+    attr_reader :source
 
-    protected
-    
-    def initialize(url)
-      @url = URI === url ? url : URI.parse(url)
+    def initialize(source)
+      @source = source
     end
   end
 end
 
 require "basis/templates/local"
 require "basis/templates/git"
+
