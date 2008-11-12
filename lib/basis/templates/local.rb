@@ -1,5 +1,3 @@
-require "uri"
-
 module Basis
   module Templates
     class Local < Basis::Template
@@ -10,4 +8,3 @@ module Basis
     end
   end
 end
-
