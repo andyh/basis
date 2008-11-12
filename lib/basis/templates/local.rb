@@ -3,7 +3,7 @@ require "uri"
 module Basis
   module Templates
     class Local < Basis::Template
-      def initialize(source)
+      def initialize(repository, source)
         raise Basis::DirectoryNotFound.new(source) unless File.directory?(source)
         super
       end
