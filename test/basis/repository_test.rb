@@ -11,7 +11,7 @@ module Basis
       assert_equal(Pathname.new(valid), repo.path)
     end
     
-    def test_initiaized_explodes_on_bad_paths
+    def test_initialized_explodes_on_bad_paths
       assert_raise(Basis::DirectoryNotFound) do
         Basis::Repository.new(File.join(Dir.tmpdir, "nonexistent"))
       end
