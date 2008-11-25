@@ -1,4 +1,5 @@
-require "basis/version"
+require "basis/config"
 require "basis/installer"
 require "basis/repository"
 require "basis/template"
+require "basis/version"

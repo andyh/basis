@@ -3,12 +3,13 @@ require "yaml"
 
 module Basis
   class Repository
-    attr_reader :path, :templates
+    attr_reader :config, :path, :templates
 
     def initialize path = "~/.basis"
       @path = Pathname.new(File.expand_path(path)).freeze
       raise Basis::DirectoryNotFound.new(@path) unless @path.exist?
-
+      
+      @config = Basis::Config.new(@path + "config.yml")
       @templates = load_templates
     end
     
