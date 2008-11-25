@@ -36,7 +36,7 @@ module Basis
     end
     
     def remove name
-      
+      @templates.reject! { |t| t.name == name }
     end
   end
 end

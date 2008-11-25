@@ -64,5 +64,11 @@ module Basis
       @repo.add :local, FIXTURES_PATH + "/dynamic" # no basis/config.yml
       assert_equal "dynamic", @repo.templates.first.name
     end
+    
+    def test_can_remove_a_template
+      @repo.add :local, FIXTURES_PATH + "/static"
+      @repo.remove @repo.templates.first.name
+      assert_equal [], @repo.templates
+    end
   end
 end
