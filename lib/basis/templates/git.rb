@@ -4,3 +4,5 @@ module Basis
     end
   end
 end
+
+Basis::Template.handlers[:git] = Basis::Templates::Git

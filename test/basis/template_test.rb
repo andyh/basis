@@ -7,23 +7,22 @@ module Basis
       FileUtils.rm_rf path
       FileUtils.mkdir path
       
-      @repo = Basis::Repository.new(path)
-      @template = Basis::Template.new(@repo, "source")
+      @repo = Basis::Repository.new path
+      @template = Basis::Template.new @repo, "source", "name"
       FileUtils.cp_r FIXTURES_PATH + "/static", @template.cache
     end
 
     def test_initialize_takes_a_source      
-      assert_equal("source", @template.source)
+      assert_equal "source", @template.source
     end
-    
+
     def test_loads_config_if_available
-      assert_equal("static!", @template.config["name"])
+      assert_equal "static!", @template.config["name"]
     end
-    
+
     def test_has_empty_config_if_not_available
-      t = Basis::Template.new(@repo, "whatever")
+      t = Basis::Template.new @repo, "nonexistent"
       assert_equal({}, t.config)
     end
   end
 end
-
