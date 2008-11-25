@@ -3,9 +3,12 @@ require "fileutils"
 module Basis
   module Templates
     class Local < Basis::Template
-      def initialize repository, source, name = nil
+      handles :local
+
+      def initialize repository, type, source, name = nil
+        source = File.expand_path(source)
         raise Basis::DirectoryNotFound.new(source) unless File.directory? source
-        super
+        super(repository, type, source, name)
       end
       
       def create
@@ -19,4 +22,4 @@ module Basis
   end
 end
 
-Basis::Template.handlers[:local] = Basis::Templates::Local
+Basis::Template.add_handler Basis::Templates::Local

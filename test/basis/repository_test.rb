@@ -70,5 +70,11 @@ module Basis
       @repo.remove @repo.templates.first.name
       assert_equal [], @repo.templates
     end
+    
+    def test_persisting_templates
+      @repo.add :local, FIXTURES_PATH + "/static"
+      other = Repository.new(@repo.path)
+      assert_equal @repo.templates, other.templates
+    end
   end
 end

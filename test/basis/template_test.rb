@@ -8,7 +8,7 @@ module Basis
       FileUtils.mkdir path
       
       @repo = Basis::Repository.new path
-      @template = Basis::Template.new @repo, "source", "name"
+      @template = Basis::Template.new @repo, :type, "source", "name"
       FileUtils.cp_r FIXTURES_PATH + "/static", @template.cache
     end
 
@@ -21,7 +21,7 @@ module Basis
     end
 
     def test_has_empty_config_if_not_available
-      t = Basis::Template.new @repo, "nonexistent"
+      t = Basis::Template.new @repo, :type, "nonexistent"
       assert_equal({}, t.config)
     end
   end
